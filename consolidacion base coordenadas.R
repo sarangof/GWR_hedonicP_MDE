@@ -101,5 +101,5 @@ for (j in 1:nrow(base_nv)){
 }
 
 #IMPRIMIR NUEVAS BDD
-write.csv2(file="usada_coord.csv", x=base_us)
-write.csv2(file="nueva_coord.csv", x=base_nv)
+write.csv2(file="base_us.csv", x=base_us)
+write.csv2(file="base_nv.csv", x=base_nv)
