@@ -538,16 +538,8 @@ explain price?
 
 \end{itemize}
 
-\subsection{Subsection Heading Here}
-Subsection text here.
 
-% needed in second column of first page if using \IEEEpubid
-%\IEEEpubidadjcol
-
-\subsubsection{Subsubsection Heading Here}
-Subsubsection text here.
-
-\section{Methodology}
+\textbf{LITERATURE REVIEW}
 
 \subsection{Data and variables}
 
@@ -609,9 +601,95 @@ data was obtained from:
 \item Medellín’s department of Planning Zoning plan 2 (ArcGIS geodatabase). Includes road networks, metro and BRT stations locations, existing parks, among others. The original maps can be
 seen in Anexus 1 and Anexus 2. A good amount of geographical processing was needed in order to create variables for nearest distance to features for each of the data points, and to extract
 the features that were needed in the case of existing green parks and only the main roads in the network (Anexus 3).
+
+\item Neighbor density, given by the Life Quality
+Survey, performed by the city of Medellín. This
+polygon data was extracted for each of the data
+points, depending on their geographical location.
+
+\textbf{TABLE}
+
+
+
 \end{itemize}
 
 \end{enumerate}
+
+\subsection{Methods}
+
+
+\section{Results}
+
+A simple Spearman’s correlation shows an interesting story (See Figure 2). As it will be discussed, most of the total price of the sampled
+houses can be predicted by their total area. It can be seen that Area has a relatively higher than usual degree of correlation to other variables compared to the rest of variable to variable relationships,
+although the three highest correlations obtained were:
+
+\begin{itemize}
+\item Density and Distance to Downtown are relatively highly positively correlated. This is only a demonstration of the known fact that most of Medellín lives in its periphery.
+
+\textbf{PLOT}
+
+\item Distance to Mass Transit and Distance to Downtown: Mass transit is focused in certain central corridors where most of the people do not actually live. This is an indicator of the lack of accessibility of this system.
+
+\item Distance to roads and distance to mass transit. This is mainly explained by the fact that the mass transport system overlays the main roads network.
+
+\end{itemize}
+
+Figure 3. displays the relationship between price and other critical variables, colored by strata. There seem to be different behaviors for different strata. This will be further explored below.
+
+By comparing the critical variables mentioned below, some regressions were performed, and it was noted that Density creates multicolinearity issues and does not add to the R2 value, although it is found as
+meaningful in a simple regression that includes Area. Distance to green areas also was found not to be significant in a simple regression and also creates multicolinearity with unit area. The same behavior was observed for distance to roads and distance to
+public transport.
+
+According to this, the extra geographical features that were added, are not useful for increasing prediction analysis in a global model such as ordinary linear regression. As it will be discussed below, the
+explanation for this might be that these contextual variables might only be meaningful when local behaviors are taken into account. So far, with just Strata and Area, most of the variance of the price was
+already described, and adding more variables only seems to increase the noise and complexity.
+
+The variable “lot area” was also removed for its correlation to the total area.
+
+\textbf{Figure}
+
+\subsubsection*{Regression analysis}
+
+Using a simple feature selection algorithm that ignores the aforementioned discussion about correlation yields the results displayed in \textbf{Table 3}. Only the presence or absence of a Storage room is not significant with a significance level of 95\%. Distance to mass transit presents a p-value higher than the rest,
+but still lower than 0.05 for the stated level of confidence. The independent variables have the expected impacts: Age decreases the value, higher strata imply higher priced properties, parking ads to
+the value of the unit, distance to mass transit increases the price of the property. This last observation makes sense in a city like Medellín, where the mass transit system is not very efficient and goes through areas that are traditionally congested, loud, polluted, among
+others.
+
+The same simple feature selection model for Price per Unit Area yields the results displayed in Table 4. It is worth noticing that a Principal Component Analysis was used for both of the models and did not yield any significant increase in prediction capabilities nor any
+evident cluster more evident than what is already indicated by strata.
+The relationship between price per squared meter and area is not that evident, this can be shown by the significant yet negative coefficient in the regression in Table 4, and by the plots displayed in Figure 4. This is consistent with the prior belief that modeling the squared meter can be somehow more informative, and, surprisingly, the estimation capability was not lost at large.
+
+The possibilities displayed here need to be more refined in order to create a robust model that can be used for more general cases in Medellín. It is important to notice that, since the city is very segregated itself, Strata can pick many behaviors that otherwise could be attributed to geographical location.
+
+\textbf{TABLES OF REGRESSION RESULTS}
+
+\textbf{Relationship between variables}
+
+\subsubsection*{Geographically weighted regression}
+
+Although the purpose of this exercise was not to develop a robust brand new geographically weighted regression model, the fact that all the contextual variables created for this exercise were not picked up as important for a global regression, an interest to see how a local model would behave under these conditions. ArcGIS’s GWR method
+was used only for Area and Green Spaces. Strata is expected to be picked up by the geography itself.
+
+Since inference is complicated in GWR estimation, no assertions can be made, only that the expected added value to green areas according to location has the expected behavior that is indeed observed
+in Figure 7: wealthier areas are more attracted to this feature, whereas poorer areas actually repel it because it might usually mean less access to services.
+	
+\textbf{tables}
+
+\textbf{PLOT}
+
+\section{Discussion}
+
+\section{Conclusions}
+
+\begin{itemize}
+\item A basic clustering approach does broadly reveal that the submarkets that are expected from the understanding of the city are the ones that are revealed by the prices.
+\item The effect of the contextual variables used for this analysis is negligible for a global linear model. Their effect might be masked by a Simpson’s paradox like effect, and thus the importance of geographically weighted regression or other local method. This result
+might not mean that these variables should be discarded for Geographically Weighted Regression, only that global analyses are not
+suitable for increasing prediction of real estate prices to a very high degree.
+\item Using the square meter price of housing units can be a useful and more robust measure than total price because of the latter’s sensitivity to total area. This needs to be further explored when a complete GWR model is developed.
+\end{itemize}
+
 
 % An example of a floating figure using the graphicx package.
 % Note that \label must occur AFTER (or within) \caption.
