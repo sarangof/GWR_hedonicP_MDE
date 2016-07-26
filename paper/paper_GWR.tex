@@ -1,4 +1,5 @@
 
+
 %% bare_jrnl.tex
 %% V1.4
 %% 2012/12/27
@@ -128,22 +129,22 @@
 % *** GRAPHICS RELATED PACKAGES ***
 %
 \ifCLASSINFOpdf
-  % \usepackage[pdftex]{graphicx}
+  \usepackage[pdftex]{graphicx}
   % declare the path(s) where your graphic files are
-  % \graphicspath{{../pdf/}{../jpeg/}}
+  \graphicspath{{/home/saf537/Documents/GWR_hedonicP_MDE/Plots}}
   % and their extensions so you won't have to specify these with
   % every instance of \includegraphics
-  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+  \DeclareGraphicsExtensions{.pdf,.jpeg,.png,.jpg}
 \else
   % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
   % will default to the driver specified in the system graphics.cfg if no
   % driver is specified.
-  % \usepackage[dvips]{graphicx}
+  \usepackage[dvips]{graphicx}
   % declare the path(s) where your graphic files are
-  % \graphicspath{{../eps/}}
+  \graphicspath{{/home/saf537/Documents/GWR_hedonicP_MDE/Plots}}
   % and their extensions so you won't have to specify these with
   % every instance of \includegraphics
-  % \DeclareGraphicsExtensions{.eps}
+  \DeclareGraphicsExtensions{.eps,.pdf,.jpeg,.png,.jpg}
 \fi
 % graphicx was written by David Carlisle and Sebastian Rahtz. It is
 % required if you want graphics, photos, etc. graphicx.sty is already
@@ -372,7 +373,7 @@
 % paper title
 % can use linebreaks \\ within to get better formatting as desired
 % Do not put math or special symbols in the title.
-\title{Bare Demo of IEEEtran.cls for Journals}
+\title{Hedonic Price Modelling with Geographically Weighted Regression in Medellín, Colombia}
 %
 %
 % author names and IEEE memberships
@@ -384,14 +385,12 @@
 % was not built to handle multiple paragraphs
 %
 
-\author{Michael~Shell,~\IEEEmembership{Member,~IEEE,}
-        John~Doe,~\IEEEmembership{Fellow,~OSA,}
-        and~Jane~Doe,~\IEEEmembership{Life~Fellow,~IEEE}% <-this % stops a space
-\thanks{M. Shell is with the Department
-of Electrical and Computer Engineering, Georgia Institute of Technology, Atlanta,
-GA, 30332 USA e-mail: (see http://www.michaelshell.org/contact.html).}% <-this % stops a space
-\thanks{J. Doe and J. Doe are with Anonymous University.}% <-this % stops a space
-\thanks{Manuscript received April 19, 2005; revised December 27, 2012.}}
+\author{Sara~Arango,
+        Juan~Carlos~Duque.% <-this % stops a space
+\thanks{Sara Arango Center for Urban Science and Progress, \textit{CUSP}. 
+New York University, United States.}% <-this % stops a space
+\thanks{Group in Spatial Economics, \textit{RiSE} 
+Universidad EAFIT, Medellín, Colombia}}
 
 % note the % following the last \IEEEmembership and also \thanks - 
 % these prevent an unwanted space from occurring between the last author name
@@ -414,8 +413,8 @@ GA, 30332 USA e-mail: (see http://www.michaelshell.org/contact.html).}% <-this %
 
 
 % The paper headers
-\markboth{Journal of \LaTeX\ Class Files,~Vol.~11, No.~4, December~2012}%
-{Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for Journals}
+%\markboth{Journal of \LaTeX\ Class Files,~Vol.~11, No.~4, December~2012}%
+%{Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for Journals}
 % The only time the second header will appear is for the odd numbered pages
 % after the title page when using the twoside option.
 % 
@@ -447,12 +446,12 @@ GA, 30332 USA e-mail: (see http://www.michaelshell.org/contact.html).}% <-this %
 % As a general rule, do not put math, special symbols or citations
 % in the abstract or keywords.
 \begin{abstract}
-The abstract goes here.
+In this paper we use Geographically Weighted Regression to estimate Real Estate Prices with an hedonic pricing approach, accounting for selected contextual and structural variables for city appraisal records of the Medellín, Colombia in 2014, and claiming that this type of analysis can be equally efficient for emergent cities such as Medellín, regardless of the size of their informal markets.
 \end{abstract}
 
 % Note that keywords are not normally used for peerreview papers.
 \begin{IEEEkeywords}
-IEEEtran, journal, \LaTeX, paper, template.
+Hedonic pricing, real estate, Geographically Weighted Regression.
 \end{IEEEkeywords}
 
 
@@ -489,71 +488,48 @@ IEEEtran, journal, \LaTeX, paper, template.
 % Here we have the typical use of a "T" for an initial drop letter
 % and "HIS" in caps to complete the first word.
 \IEEEPARstart{E}{stimating} the prices of real estate is useful and
-necessary for taxation, public policy, infrastructure and
-equality in cities. Medellín is the second city of
-Colombia, with more than two and a half million
-inhabitants and a population of over three million in its
-metropolitan area. It is a focus of development for the
-country, and construction plays a major role in its
-dynamics.
-Most of the development in Medellín is very uniform in
-its types. The developers do not have a clear idea of what
-customers want, and thus keep building over the same
-formula that has worked this far. Universidad EAFIT
-funded a project with its Research Group in Spatial
-Economics (RiSE) to assess the real estate prices in
-Medellín, in order to seek for what it is that costumers
-value in housing.
-Geographically Weighted Regression (GWR) was used
-as a method for the hedonic pricing estimation of real
-estate in Medellín using only structural variables (size,
-number of rooms, parking, etc.) to predict total price.
-Fair estimation results were obtained by using GWR, but
-some questions arise:
+necessary for taxation, public policy, infrastructure and equality in cities. 
+
+\textbf{Hedonic pricing.} Hedonic pricing is an approach that has been naturally linked to real estate as it welcomes the modelling of assets that are usually not valued by traditional pricing strategies, such as natural resources, accesibility, among others.
+
+GWR is a spatial method developed by Fotheringham et al. \cite{fother} to account for the fact that independent variables might have different effects on a dependent variable depending on spatial location. For example, the effect of distance to subway stations in a city in real estate prices may depend on geographical factors that might not be evident from other independent variables.
+
+\textbf{GWR and hedonic pricing.}
+
+Medellín is the second city of Colombia, with more than two and a half million inhabitants and a population of over three million in its metropolitan area. It is a focus of development for the country, and construction plays a major role in its dynamics. \textbf{CITA SOBRE MEDELLIN SIENDO IMPORTANTE EN REAL ESTATE}.
+
+Most of the formal development in Medellín is very uniform in its types. The developers do not have a clear idea of what customers want, and thus they keep building over the same formula that has worked this far. \textit{Universidad EAFIT} funded a project with its Research Group in Spatial Economics (RiSE) to assess the real estate prices in Medellín, in order to seek for what it is that costumers value in housing, and to set foundations for a spin-off with this prpose.
+
+GWR was used as a method for the hedonic pricing estimation of real estate in Medellín using structural variables (those particular to the housing unit itself) and contextual variables (those related to neighbour quality) to predict total price. An important amount of geographical processing had to be done in order to collect, process and standardize this information, typically unavailable for the real estate business to use.
+
+Some questions arose:
 
 \begin{itemize}
-\item How successfully can the price per unit area be
-modeled? Since Area does explain most of the total
-price, it would be smart to predict square meter prices,
-as it could be a more robust measure that can
-overcome how much area shadows other variables in
-the estimation of the total price. Predictability would
-be lost, but capability to understand what the public
-really want could be gained.
+\item How successfully can the price per unit area be modeled? Since Area does explain most of the total price, it would be smart to predict square meter prices, as it could be a more robust measure that can overcome how much area shadows other variables in
+the estimation of the total price. Predictability would be lost, but capability to understand what the public really want could be gained.
 
-\item Hedonic pricing theory considers a group of
-independent variables that can help explain the prices
-of real estate and are related to the surroundings of a
-housing unit such as urban form or density, number
-of parks, accessibility, and quality of transportation,
-among many others. What contextual variables can be meaningful to improve the actual estimation of real
-estate prices in Medellín?
-\item Can clustering techniques reveal housing
-submarkets? Would they be similar as the one
-experience has told developers in Medellín so far?
-\item Does the geographical location of a housing unit
-absorb other important variables in hedonic pricing
-theory? How does it relate to them? Which can better
-explain price?
+\item What contextual variables can be meaningful to improve the actual estimation of real estate prices in Medellín? 
+\item Does the geographical location of a housing unit absorb other important variables in hedonic pricing theory? How does it relate to them? Which can better explain the price?
 
 \end{itemize}
 
 
-\textbf{LITERATURE REVIEW}
+\section{Methodology}
 
 \subsection{Data and variables}
 
-The lengthiest part of this project was to process
-geographical data from different sources to add to
-the original data base that was used and analyzed
-with Universidad EAFIT.
+A first important step of this project was to process geographical data from different sources to add to the original data base that was used and analyzed with Universidad EAFIT.
 
 \begin{enumerate}
-\item Housing data was obtained from OIME, Medellín’s
-municipal Real Estate Market Observatory. It can be
-found online 1 . Initially, it has 2003 observations for
-new and used houses and apartments across the city
-of Medellín in the year of 2014 (See Figure 1.).
+\item Housing data was obtained from OIME, Medellín’s municipal Real Estate Market Observatory. It can be found online 1 . Initially, it has 2003 observations for new and used houses and apartments across the city of Medellín in the year of 2014 (See Figure \ref{fig_sim}.).
+
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=2.5in]{/home/saf537/Documents/GWR_hedonicP_MDE/Plots/MDE_point}
+\caption{Distribution of data points.}
+\label{fig_sim}
+\end{figure}
 
 These observations come from appraisals for
 taxation purposes. They present a reasonable spatial
@@ -563,7 +539,7 @@ line crossing from south to north) because that is a
 restricted zone for construction, and the less dense
 zone of the city for residential uses.
 
-The analyzed dataset comprises the following
+The analysed dataset comprises the following
 variables. The summary data was calculated after
 removing atypical values and observations with
 missing data (absolute z-scores greater than 3):
@@ -586,28 +562,45 @@ Spanish, from lower to higher income: 1 – Uno
 \item Age. In years. Medellín is a relatively new city that has undergone exponential growth especially since the 1960’s, without much
 interest in architectural preservation. 
 
-\item Spatial coordinates. X and Y coordinates of
-data points in WGCS 1984 projected system.
+\item Spatial coordinates. X and Y coordinates of data points in WGCS 1984 projected system.
 
 \end{itemize}
 
-\item In order to account for contextual variables (those
-that could indicate added value for relatively
-similar properties given their distance to natural
-features, public spaces or transportation networks)
-data was obtained from:
+\item In order to account for contextual variables (those that could indicate added value for relatively similar properties given their distance to natural features, public spaces or transportation networks) data was obtained from:
 
 \begin{itemize}
-\item Medellín’s department of Planning Zoning plan 2 (ArcGIS geodatabase). Includes road networks, metro and BRT stations locations, existing parks, among others. The original maps can be
-seen in Anexus 1 and Anexus 2. A good amount of geographical processing was needed in order to create variables for nearest distance to features for each of the data points, and to extract
-the features that were needed in the case of existing green parks and only the main roads in the network (Anexus 3).
+\item Medellín’s department of Planning Zoning plan 2 (ArcGIS geodatabase). Includes road networks, metro and BRT stations locations, existing parks, among others. A good amount of geographical processing was needed in order to create variables for nearest distance to features for each of the data points, and to extract
+the features that were needed in the case of existing green parks and only the main roads in the network.
 
-\item Neighbor density, given by the Life Quality
-Survey, performed by the city of Medellín. This
-polygon data was extracted for each of the data
-points, depending on their geographical location.
+\item Neighbor density, given by the Life Quality Survey, performed by the city of Medellín. This polygon data was extracted for each of the data points, depending on their geographical location.
 
-\textbf{TABLE}
+
+
+
+	
+
+May be this is what you are after:
+
+
+\begin{table}[htb]
+\caption{Summary of the newly created variables.}
+\label{1234}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{c|c|c|c|c|c}
+value & \textbf{Density} & \textbf{Open space} & \textbf{Transit} & \textbf{Downtown }& \textbf{Roads} \\
+\hline
+mean & 24630 & 0.001 & 0.0113 & 0.040 & 0.002\\
+std & 14576 & 0.001 & 0.0077 & 0.019 & 0.002 \\
+min & 0 & 0.000 & 0.0006 & 0.001 & 0.000 \\
+25\% & 14453 & 0.000 & 0.0055 & 0.027 & 0.001 \\
+50\% & 21218 & 0.001 & 0.0099 & 0.039 & 0.001 \\
+75\% & 32645 & 0.001 & 0.0153 & 0.052 & 0.003 \\
+max & 77837 & 0.04 & 41.2 & 0.085 & 0.013 \\
+
+\end{tabular}
+}
+\end{table}
+
 
 
 
@@ -625,9 +618,14 @@ houses can be predicted by their total area. It can be seen that Area has a rela
 although the three highest correlations obtained were:
 
 \begin{itemize}
-\item Density and Distance to Downtown are relatively highly positively correlated. This is only a demonstration of the known fact that most of Medellín lives in its periphery.
+\item Density and Distance to Downtown are relatively highly positively correlated. This is only a demonstration of the known fact that most of Medellín lives in its periphery \ref{cor}.
 
-\textbf{PLOT}
+\begin{figure}[!t]
+\centering
+\includegraphics[width=2.5in]{/home/saf537/Documents/GWR_hedonicP_MDE/Plots/cor}
+\caption{Distribution of data points.}
+\label{cor}
+\end{figure}
 
 \item Distance to Mass Transit and Distance to Downtown: Mass transit is focused in certain central corridors where most of the people do not actually live. This is an indicator of the lack of accessibility of this system.
 
@@ -671,7 +669,7 @@ The possibilities displayed here need to be more refined in order to create a ro
 Although the purpose of this exercise was not to develop a robust brand new geographically weighted regression model, the fact that all the contextual variables created for this exercise were not picked up as important for a global regression, an interest to see how a local model would behave under these conditions. ArcGIS’s GWR method
 was used only for Area and Green Spaces. Strata is expected to be picked up by the geography itself.
 
-Since inference is complicated in GWR estimation, no assertions can be made, only that the expected added value to green areas according to location has the expected behavior that is indeed observed
+Since inference is complicated in GWR estimation, no assertions can be made, only that the expected added value to green areas according to location has the expected behaviour that is indeed observed
 in Figure 7: wealthier areas are more attracted to this feature, whereas poorer areas actually repel it because it might usually mean less access to services.
 	
 \textbf{tables}
@@ -679,6 +677,16 @@ in Figure 7: wealthier areas are more attracted to this feature, whereas poorer 
 \textbf{PLOT}
 
 \section{Discussion}
+
+Not necessarily a novel approach, but it is a novel exercise in the context of emerging cities with potentially very obscure sub markets.
+
+It might be worth just modelling subsets of the city.
+
+GWR must be taken and understood with care since it is a very novel technique and validation is harder, still to be more rigorous.
+
+What is the best way to standardize? what is the best way to treat variables?
+
+Feature selection.
 
 \section{Conclusions}
 
@@ -799,8 +807,9 @@ The conclusion goes here.
 
 
 \appendices
-\section{Proof of the First Zonklar Equation}
-Appendix one text goes here.
+\section{Geographical inputs}
+
+
 
 % you can choose not to have a title for an appendix
 % if you want by leaving the argument blank
@@ -812,7 +821,7 @@ Appendix two text goes here.
 \section*{Acknowledgment}
 
 
-The authors would like to thank...
+The authors would like to thank the City of Medellín's Real Estate Observatory (OIME) in the head of Juan Pablo Barrero. 
 
 
 % Can use something like this to put references on a page
@@ -845,11 +854,14 @@ The authors would like to thank...
 % <OR> manually copy in the resultant .bbl file
 % set second argument of \begin to the number of references
 % (used to reserve space for the reference number labels box)
-\begin{thebibliography}{1}
+\begin{thebibliography}{2}
 
 \bibitem{IEEEhowto:kopka}
 H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
   0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
+  
+\bibitem{fother}
+Fotheringham, A. Stewart., Chris Brundson, and Martin Charlton. \emph{Geographically Weighted Regression: The Analysis of Spatially Varying Relationships}. Chichester, West Sussex, England: Wiley, 2002. Print. 
 
 \end{thebibliography}
 
@@ -864,22 +876,11 @@ H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
 %\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{mshell}}]{Michael Shell}
 % or if you just want to reserve a space for a photo:
 
-\begin{IEEEbiography}{Michael Shell}
-Biography text here.
-\end{IEEEbiography}
-
-% if you will not have a photo at all:
-\begin{IEEEbiographynophoto}{John Doe}
-Biography text here.
-\end{IEEEbiographynophoto}
 
 % insert where needed to balance the two columns on the last page with
 % biographies
 %\newpage
 
-\begin{IEEEbiographynophoto}{Jane Doe}
-Biography text here.
-\end{IEEEbiographynophoto}
 
 % You can push biographies down or up by placing
 % a \vfill before or after them. The appropriate
